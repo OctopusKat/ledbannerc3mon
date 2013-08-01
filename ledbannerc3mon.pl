@@ -50,7 +50,7 @@ while (1) {
 	print "Ok, Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%)    Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)";
 
         # Pulling out the shadow temprature from the decoded json
-        $bannerstr = "Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%)    Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)\n";
+        $bannerstr = "Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%)     Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)\n";
 
         # Create a user agent object
         $ua = LWP::UserAgent->new;
