@@ -47,7 +47,7 @@ while (1) {
         # Grab the latest stats from c3netmon and decode the data
         $statsjson = get 'http://c3netmon.camp.ohm2013.org/current.json';
         $decoded = decode_json($statsjson);
-	print "Ok, Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%)    Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)";
+	print "Ok, Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%) Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)\n";
 
         # Pulling out the shadow temprature from the decoded json
         $bannerstr = "Down: " . $decoded->{'bw'}{'value'}[0] . " Mb/s (" . int($decoded->{'bw'}{'value'}[0]/100.0 + 0.5) . "%)     Up: " . $decoded->{'bw'}{'value'}[1] . " Mb/s (" . int($decoded->{'bw'}{'value'}[1]/100.0 + 0.5) . "%)\n";
@@ -60,7 +60,7 @@ while (1) {
         $req->content_type('application/x-www-form-urlencoded');
         $req->content('text='.uri_escape($bannerstr));
 
-        print "Sending Bandwidth stats to LED banner... ";
+        print "Sending bandwidth stats to LED banner... ";
 
         # Pass request to the user agent and get a response back
         $res = $ua->request($req);
